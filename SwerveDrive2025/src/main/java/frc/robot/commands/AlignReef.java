@@ -58,11 +58,13 @@ public class AlignReef extends Command{
             end(true); // End the command if tID is null
             return;
         // Gets the position of the april tag
+        }
         double[] targetPoseArray = Constants.AprilTagMaps.aprilTagMap.get(tID);
         if (targetPoseArray == null) {
             System.out.println("Error: Target pose array is null for Tag ID: " + tID);
             end(true); // End the command if targetPoseArray is null
             return;
+        }
         // Creates a Pose2d for the target position, converts inches to meters
         targetPose = new Pose2d(targetPoseArray[0] * Constants.inToM, targetPoseArray[1] * Constants.inToM, drivetrain.getState().Pose.getRotation());
 
